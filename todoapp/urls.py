@@ -9,6 +9,7 @@ urlpatterns=[
     path('',views.IndexView.as_view(),name='index'),
     path('post/<int:pk>/', views.BlogDetail.as_view(), name='post'),
     path('contact/',views.ContactView.as_view(),name='contact'),
+	path('reply/<int:pk>/', views.reply_view, name='reply'),
     path(
         'blog-detail/<int:pk>/',
         views.BlogDetail.as_view(),

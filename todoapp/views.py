@@ -43,4 +43,6 @@ class ContactView(FormView):
         messages.success(self.request,'お問い合わせは正常に送信されました。')
         return super().form_valid(form)
         
-    
+def reply_view(request, pk):
+    post = get_object_or_404(BlogPost, pk=pk)
+    return render(request, 'reply.html', {'post': post})

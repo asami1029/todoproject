@@ -22,22 +22,24 @@
     <div class="row gx-4 gx-lg-5 justify-content-center">
         <div class="col-md-10 col-lg-8 col-xl-7">
             {% for record in orderby_records %}
-            <!-- Post preview-->
-            <div class="post-preview">
-                <a href="{% url 'todoapp:post' pk=record.pk %}">
-                    <h2 class="post-title">
-                        {{ record.title }}
-                    </h2>
-                </a>
-                <p class="post-meta">
-                    <a href="{% url 'todoapp:index' %}">esports news</a>
-                    {{ record.posted_at }}
-                    {{ record.category }}
-                </p>
-            </div>
-            <!-- Divider-->
-            <hr class="my-4" />
-            {% endfor %}
+<!-- Post preview-->
+<div class="post-preview">
+    <a href="{% url 'todoapp:post' pk=record.pk %}">
+        <h2 class="post-title">
+            {{ record.title }}
+        </h2>
+    </a>
+    <p class="post-meta">
+        <a href="{% url 'todoapp:index' %}">esports news</a>
+        {{ record.posted_at }}
+        {{ record.category }}
+    </p>
+    <!-- 返信ボタン -->
+    <a href="{% url 'todoapp:reply' pk=record.pk %}" class="btn btn-primary">返信</a>
+</div>
+<!-- Divider-->
+<hr class="my-4" />
+{% endfor %}
             <!-- Pager-->
             {% include "pagination.html" %}
         </div>
